@@ -151,7 +151,7 @@ function Signup() {
                 navigate('/setting');
               }
             }} 
-            className="login-button"
+            className="signup-button"
           >
             Create Account
           </button>

@@ -143,16 +143,17 @@
     margin-left: 10px; 
   }
   
-  .login-button {
+  .signup-button {
     width: 100%;
     padding: 18px; 
-    background-color: #6c47ff;
+    background-color: #6c47ff!important;
     color: white;
     border: none;
     border-radius: 6px;
     font-size: 18px; 
     font-weight: 500;
     cursor: pointer;
+    margin-top: 80px;
   }
 
   @media screen and (max-width: 600px) { 
