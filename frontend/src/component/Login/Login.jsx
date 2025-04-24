@@ -13,8 +13,8 @@ function Login() {
           <h1>Signin to your<br />PopX account</h1>
           <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit.</p>
         </div>
-        
-        <form>
+
+        <form onSubmit={() =>navigate('/setting')}>
           <div className="form-group">
             <TextField
               id="email"
@@ -28,7 +28,13 @@ function Login() {
               sx={{
                 '& .MuiOutlinedInput-root': {
                   borderRadius: '8px',
-                  height: '50px'
+                  height: '50px',
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#8753ff',
+                  },
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#ccc',
                 },
                 '& .MuiInputLabel-root': {
                   transform: 'translate(14px, -6px) scale(0.75)',
@@ -42,7 +48,7 @@ function Login() {
               }}
             />
           </div>
-          
+
           <div className="form-group">
             <TextField
               id="password"
@@ -56,7 +62,13 @@ function Login() {
               sx={{
                 '& .MuiOutlinedInput-root': {
                   borderRadius: '8px',
-                  height: '50px'
+                  height: '50px',
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#8753ff',
+                  },
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#ccc',
                 },
                 '& .MuiInputLabel-root': {
                   transform: 'translate(14px, -6px) scale(0.75)',
@@ -70,8 +82,8 @@ function Login() {
               }}
             />
           </div>
-          
-          <button onClick={() => navigate('/setting')} type="submit" className="login-button">
+
+          <button  type="submit" className="login-button">
             Login
           </button>
         </form>
