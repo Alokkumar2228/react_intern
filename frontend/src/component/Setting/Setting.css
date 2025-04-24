@@ -86,6 +86,11 @@
     margin-top: 15px;
     border-top: 1px dashed #ddd;
     text-align: left;
+    
+  }
+  hr{
+    border: 0;
+    border-bottom: 2px dashed rgb(214, 208, 208)
   }
   
   .profile-bio p {

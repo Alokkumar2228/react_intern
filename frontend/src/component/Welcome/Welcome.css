@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end; 
-  min-height: 90vh;
+  min-height: 90vh !important;
   padding: 20px;
   background-color: #f8f8f8;
   box-sizing: border-box;
@@ -67,7 +67,7 @@
 @media screen and (max-width: 768px) {
   .welcome-container {
     padding: 16px;
-    min-height: 85vh;
+    min-height: 75vh;
   }
   
   .welcome-content {
@@ -81,7 +81,7 @@
 
 @media screen and (max-width: 480px) {
   .welcome-container {
-    min-height: 80vh;
+    min-height: 80vh!important;
     padding: 12px;
   }
   

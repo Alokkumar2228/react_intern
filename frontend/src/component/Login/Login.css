@@ -28,7 +28,6 @@
     position: absolute; /* or 'fixed' if you want it to stay at the top during scroll */
     top: 0;
     width: 100%;
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     min-height: 90vh;
@@ -74,6 +73,7 @@
     font-size: 14px;
     color: #8753ff;
     font-weight: 500;
+    
   }
   
   .input-field {
@@ -84,6 +84,7 @@
     font-size: 16px;
     color: #333;
     background-color: #fff;
+    height: 30px!important;
   }
   
   .input-field::placeholder {
@@ -98,14 +99,13 @@
   .login-button {
     width: 100%;
     padding: 15px;
-    background-color: #ccc;
+    background-color: #ccc!important;
     color: white;
     border: none;
     border-radius: 6px;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    margin-top: 10px;
     transition: background-color 0.2s;
   }
   

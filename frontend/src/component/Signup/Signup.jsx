@@ -2,6 +2,27 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.css';
 
+// Custom TextField component
+const TextField = ({ label, id, name, type, value, onChange, required = false, autoComplete = "on" }) => {
+  return (
+    <div className="form-group">
+      <label className="input-label" htmlFor={id}>
+        {label}{required && <span className="required">*</span>}
+      </label>
+      <input
+        type={type}
+        id={id}
+        name={name}
+        className="input-field"
+        value={value}
+        onChange={onChange}
+        required={required}
+        autoComplete={autoComplete}
+      />
+    </div>
+  );
+};
+
 function Signup() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -21,6 +42,15 @@ function Signup() {
     });
   };
 
+  const checkForm = () => {
+    const { fullName, phoneNumber, email, password } = formData;
+    if (!fullName || !phoneNumber || !email || !password) {
+      alert('Please fill in all required fields.');
+      return false;
+    }
+    return true;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted with:', formData);
@@ -35,69 +65,56 @@ function Signup() {
         </div>
         
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label className="input-label" htmlFor="fullName">Full Name<span className="required">*</span></label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              className="input-field"
-              value={formData.fullName}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <TextField
+            label="Full Name"
+            id="fullName"
+            name="fullName"
+            type="text"
+            value={formData.fullName}
+            onChange={handleChange}
+            required={true}
+          />
           
-          <div className="form-group">
-            <label className="input-label" htmlFor="phoneNumber">Phone number<span className="required">*</span></label>
-            <input
-              type="tel"
-              id="phoneNumber"
-              name="phoneNumber"
-              className="input-field"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <TextField
+            label="Phone number"
+            id="phoneNumber"
+            name="phoneNumber"
+            type="tel"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            required={true}
+          />
           
-          <div className="form-group">
-            <label className="input-label" htmlFor="email">Email address<span className="required">*</span></label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="input-field"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <TextField
+            label="Email address"
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            required={true}
+            autoComplete="email"
+          />
           
-          <div className="form-group">
-            <label className="input-label" htmlFor="password">Password<span className="required">*</span></label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="input-field"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <TextField
+            label="Password"
+            id="password"
+            name="password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+            required={true}
+            autoComplete="new-password"
+          />
           
-          <div className="form-group">
-            <label className="input-label" htmlFor="companyName">Company name</label>
-            <input
-              type="text"
-              id="companyName"
-              name="companyName"
-              className="input-field"
-              value={formData.companyName}
-              onChange={handleChange}
-            />
-          </div>
+          <TextField
+            label="Company name"
+            id="companyName"
+            name="companyName"
+            type="text"
+            value={formData.companyName}
+            onChange={handleChange}
+          />
           
           <div className="radio-group">
             <p className="radio-label">Are you an Agency?<span className="required">*</span></p>
@@ -127,7 +144,15 @@ function Signup() {
               </label>
             </div>
           </div>
-          <button onClick={()=>navigate('/setting')} type="submit" className="login-button">
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              if(checkForm()){
+                navigate('/setting');
+              }
+            }} 
+            className="login-button"
+          >
             Create Account
           </button>
         </form>

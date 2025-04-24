@@ -36,7 +36,9 @@ const Setting = () => {
             Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam
           </p>
         </div>
+        
       </div>
+      <hr />
     </div>
   );
 };
